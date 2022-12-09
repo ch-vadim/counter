@@ -15,7 +15,7 @@ const caloriesMaxOutput = outputBlock.querySelector('#calories-maximal');
 const submitButton = document.querySelector('.form__submit-button');
 const resetButton = document.querySelector('.form__reset-button');
 
-let activityCoef = 1.55
+let activityCoef = 1.55;
 
 
 const calculateCalories = (weight, height, age, genderCoef) =>  
@@ -30,7 +30,7 @@ const onSubmitButtonClick = (evt) => {
   const age = ageInput.value;
   const genderCoef = genderMaleInput.checked ? 5 : - 165;
 
-  const calories = calculateCalories(weight, height, age, genderCoef)
+  const calories = calculateCalories(weight, height, age, genderCoef);
   const caloriesMin = Math.round(calories * 0.85);
   const caloriesMax = Math.round(calories * 1.15);
 
@@ -39,7 +39,7 @@ const onSubmitButtonClick = (evt) => {
   caloriesMaxOutput.textContent = caloriesMax;
 
   outputBlock.classList.remove('counter__result--hidden');
-}
+};
 
 
 const onResetButtonClick = (evt) => {
@@ -54,13 +54,13 @@ const onResetButtonClick = (evt) => {
   resetButton.disabled = true;
 
   outputBlock.classList.add('counter__result--hidden');
-}
+};
 
 
 const onInputsField = () => {
   submitButton.disabled = !weightInput.value || !heightInput.value || !ageInput.value;
   resetButton.disabled =  !weightInput.value && !heightInput.value && !ageInput.value;
-}
+};
 
 
 activityTypeInput.addEventListener('change', (evt) => {
@@ -81,9 +81,9 @@ activityTypeInput.addEventListener('change', (evt) => {
       activityCoef = 1.9;
       break;
   }
-})
+});
 
-inputs.addEventListener('input', onInputsField)
+inputs.addEventListener('input', onInputsField);
 
-resetButton.addEventListener('click', onResetButtonClick)
-submitButton.addEventListener('click', onSubmitButtonClick)
+resetButton.addEventListener('click', onResetButtonClick);
+submitButton.addEventListener('click', onSubmitButtonClick);
